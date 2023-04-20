@@ -35,7 +35,7 @@ const Login = () => {
   return (
     <div className="login-page">
         <form className="login-form" onSubmit={handleLogin}>
-         <h1>Doctor Login</h1>
+         <h1>Admin Login</h1>
          <div className="form-group">
             <label htmlFor="username">Email</label>
             <input type="email" placeholder="email" onChange={e=>setEmail
