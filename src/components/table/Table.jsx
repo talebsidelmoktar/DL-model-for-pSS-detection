@@ -11,52 +11,50 @@ const List = () => {
   const rows = [
     {
       id: 1143155,
-      product: "Acer Nitro 5",
+      imageTobeChecked: "Acer Nitro 5",
       img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
+      patient: "John Smith",
+      dateOfApointment: "1 March",
+      
       status: "Approved",
     },
     {
       id: 2235235,
-      product: "Playstation 5",
+      imageToBeCheked: "Playstation 5",
       img: "https://m.media-amazon.com/images/I/31JaiPXYI8L._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Michael Doe",
-      date: "1 March",
-      amount: 900,
-      method: "Online Payment",
+      patient: "Michael Doe",
+      dateOfApointment: "1 March",
+     
+      
       status: "Pending",
     },
     {
       id: 2342353,
-      product: "Redragon S101",
+      imageToBeCheked: "Redragon S101",
       img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 35,
+      patient: "John Smith",
+      dateOfApointment: "1 March",
+      
       method: "Cash on Delivery",
       status: "Pending",
     },
     {
       id: 2357741,
-      product: "Razer Blade 15",
+      imageToBeCheked: "Razer Blade 15",
       img: "https://m.media-amazon.com/images/I/71wF7YDIQkL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Jane Smith",
-      date: "1 March",
-      amount: 920,
-      method: "Online",
+      patient: "Jane Smith",
+      dateOfApointment: "1 March",
+      
       status: "Approved",
     },
     {
       id: 2342355,
-      product: "ASUS ROG Strix",
+      imageToBeCheked: "ASUS ROG Strix",
       img: "https://m.media-amazon.com/images/I/81hH5vK-MCL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Harold Carol",
-      date: "1 March",
-      amount: 2000,
-      method: "Online",
+      patient: "Harold Carol",
+      dateOfApointment: "1 March",
+      
+      
       status: "Pending",
     },
   ];
@@ -66,11 +64,10 @@ const List = () => {
         <TableHead>
           <TableRow>
             <TableCell className="tableCell">Tracking ID</TableCell>
-            <TableCell className="tableCell">Product</TableCell>
-            <TableCell className="tableCell">Customer</TableCell>
-            <TableCell className="tableCell">Date</TableCell>
-            <TableCell className="tableCell">Amount</TableCell>
-            <TableCell className="tableCell">Payment Method</TableCell>
+            <TableCell className="tableCell">Image to be Checked</TableCell>
+            <TableCell className="tableCell">Patient name</TableCell>
+            <TableCell className="tableCell">Date of Apointment</TableCell>
+            
             <TableCell className="tableCell">Status</TableCell>
           </TableRow>
         </TableHead>
@@ -84,10 +81,9 @@ const List = () => {
                   {row.product}
                 </div>
               </TableCell>
-              <TableCell className="tableCell">{row.customer}</TableCell>
-              <TableCell className="tableCell">{row.date}</TableCell>
-              <TableCell className="tableCell">{row.amount}</TableCell>
-              <TableCell className="tableCell">{row.method}</TableCell>
+              <TableCell className="tableCell">{row.patient}</TableCell>
+              <TableCell className="tableCell">{row.dateOfApointment}</TableCell>
+              
               <TableCell className="tableCell">
                 <span className={`status ${row.status}`}>{row.status}</span>
               </TableCell>

@@ -1,4 +1,4 @@
-import "./new.scss";
+import "./newdoc.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
@@ -11,7 +11,7 @@ import {  ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase";
 import { useNavigate } from "react-router-dom";
  
-const New = ({ inputs, title }) => {
+const Newdoc = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
   const [per, setPer] = useState(null);
@@ -74,7 +74,7 @@ const New = ({ inputs, title }) => {
         data.email,
         data.password
       );
-      await setDoc(doc(db, "users", resp.user.uid), {
+      await setDoc(doc(db, "doctors", resp.user.uid), {
       ...data,
       timeStamp: serverTimestamp(),
     });
@@ -136,4 +136,4 @@ const New = ({ inputs, title }) => {
   );
 };
 
-export default New;
+export default Newdoc;

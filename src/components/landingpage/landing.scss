@@ -1,0 +1,66 @@
+.landing-page {
+    background-color: #f7f7f7;
+    text-align: center;
+    padding: 350px;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    
+  }
+  
+  .button-1 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 40px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    width: 50%;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .button-2 {
+    background-color: hsl(195, 100%, 50%);
+    color: white;
+    padding: 20px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 50%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button-3 {
+    background-color: #4caf56;
+    color: white;
+    padding: 20px 40px;
+    border: none;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 50%;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  .button-4 {
+    background-color: #cdc11c;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    width: 50%;
+    padding: 20px 40px;
+    border: none;
+    margin-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }

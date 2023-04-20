@@ -1,9 +1,9 @@
-import "./single.scss";
+import "./singledr.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import List from "../../components/table/Table";
+import Doctorlist from "../../pages/Doctorlist/Doctorlist";
 
-const Single = () => {
+const Singledr = () => {
   return (
     <div className="single">
       <Sidebar />
@@ -46,11 +46,11 @@ const Single = () => {
         </div>
         <div className="bottom">
         <h1 className="title">Last Transactions</h1>
-          <List/>
+          <Doctorlist/>
         </div>
       </div>
     </div>
   );
 };
 
-export default Single;
+export default Singledr;
