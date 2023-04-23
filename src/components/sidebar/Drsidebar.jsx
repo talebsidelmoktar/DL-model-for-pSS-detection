@@ -16,19 +16,18 @@ import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 
-const Sidebar = () => {
+const Drsidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
   return (
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">Admin</span>
+          <span className="logo">Doctor</span>
         </Link>
       </div>
       <hr />
       <div className="center">
         <ul>
-          <p className="title">MAIN</p>
           
           <p className="title">LISTS</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
@@ -44,12 +43,7 @@ const Sidebar = () => {
             </li>
           </Link>
          
-          <Link to="/doctors" style={{ textDecoration: "none" }}>
-            <li>
-              <PersonIcon className="icon" />
-              <span>Doctors</span>
-            </li>
-          </Link>
+          
           <Link to="/" style={{ textDecoration: "none" }}>
             <li>
               <ListIcon className="icon" />
@@ -87,4 +81,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default Drsidebar;

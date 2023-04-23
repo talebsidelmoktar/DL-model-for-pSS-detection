@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './landing.scss'
 
-const LandingPage = () => {
+const Landing = () => {
     return (
       <div className="landing-page">
         <h1>Welcome to Doctorapp !</h1>
@@ -16,7 +16,7 @@ const LandingPage = () => {
             <Link to="/radiologist-login">Log in as Radiologist</Link>
           </button>
           <button className='button-4'>
-            <Link to="/nurae-login">Log in as Nurse   </Link>
+            <Link to="/nurse-login">Log in as Nurse   </Link>
           </button>
         </div >
       </div>
@@ -25,5 +25,5 @@ const LandingPage = () => {
 };
 
   
-  export default LandingPage;
+  export default Landing;
   

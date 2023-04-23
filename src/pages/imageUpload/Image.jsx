@@ -15,7 +15,8 @@ import { common } from '@material-ui/core/colors';
 import Clear from '@material-ui/icons/Clear';
 import FormData from 'form-data';
 import axios from 'axios';
-
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { useNavigate } from "react-router-dom";
 
 
 const ColorButton = withStyles((theme) => ({
@@ -150,6 +151,7 @@ export const ImageUpload = () => {
   const [data, setData] = useState();
   const [image, setImage] = useState(false);
   const [isLoading, setIsloading] = useState(false);
+  const navigate = useNavigate()
   
 
   const sendFile = async () => {
@@ -168,12 +170,15 @@ export const ImageUpload = () => {
       setIsloading(false);
     }
   }
-
+  
   const clearData = () => {
     setData(null);
     setImage(false);
     setSelectedFile(null);
     setPreview(null);
+  };
+  const navigateData = () => {
+    navigate('/send-message');
   };
 
   useEffect(() => {
@@ -277,6 +282,10 @@ export const ImageUpload = () => {
               <ColorButton variant="contained" className={classes.clearButton} color="primary" component="span" size="large" onClick={clearData} startIcon={<Clear fontSize="large" />}>
                 Clear
               </ColorButton>
+            </Grid>}
+            {data &&
+            <Grid item className={classes.buttonGrid} >
+                          <ArrowForwardIcon onClick={navigateData} className="login-button" type="submit"></ArrowForwardIcon>
             </Grid>}
         </Grid >
       </Container >

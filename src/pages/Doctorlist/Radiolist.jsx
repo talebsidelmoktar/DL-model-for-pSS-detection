@@ -1,18 +1,20 @@
-import "./list.scss"
+import "./radiolist.scss"
 import Sidebar from "../../components/sidebar/Sidebar"
 import Navbar from "../../components/navbar/Navbar"
 import Datatable from "../../components/datatable/Datatable"
+import Doctortable from "../../components/Doctorstable/Doctortable"
+import Radiotable from "../../components/Radiologiststable/Radiotable"
 
-const List = () => {
+const Radiolist = () => {
   return (
     <div className="list">
-      <Sidebar />
+   
       <div className="listContainer">
-        <Navbar />
-        <Datatable/>
+      
+        <Radiotable />
       </div>
     </div>
   )
 }
 
-export default List
+export default Radiolist

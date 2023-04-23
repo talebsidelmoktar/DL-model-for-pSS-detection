@@ -1,11 +1,11 @@
-import "./datatable.scss";
+import "./radiotable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { userColumns, userRows } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { collection, getDocs , deleteDoc, doc, onSnapshot} from "firebase/firestore";
 import { db } from "../../firebase";
-const Datatable = () => {
+const Radiotable = () => {
   const [data, setData] = useState([]);
 
 
@@ -25,7 +25,7 @@ const Datatable = () => {
     // fetchData();
     
     //listen realtime
-    const unsub = onSnapshot(collection(db, "users"), (snapshot) => {
+    const unsub = onSnapshot(collection(db, "radiologists"), (snapshot) => {
       let list = [];
       snapshot.docs.forEach((doc) =>{
         list.push({ id: doc.id, ...doc.data()}) ;
@@ -43,7 +43,7 @@ const Datatable = () => {
 
   const handleDelete = async (id) => {
     try{
-      await deleteDoc(doc(db, "users", id));
+      await deleteDoc(doc(db, "radiologists", id));
       setData(data.filter((item) => item.id !== id));
     }catch(err){
       console.log(err);
@@ -74,8 +74,8 @@ const Datatable = () => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New Patient
-        <Link to="/users/new" className="link">
+        Add New Radiologist
+        <Link to="/radiologists/new" className="link">
           Add New
         </Link>
       </div>
@@ -91,4 +91,4 @@ const Datatable = () => {
   );
 };
 
-export default Datatable;
+export default Radiotable;

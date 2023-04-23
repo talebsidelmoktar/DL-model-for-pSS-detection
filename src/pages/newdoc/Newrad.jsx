@@ -11,7 +11,7 @@ import {  ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../../firebase";
 import { useNavigate } from "react-router-dom";
  
-const Newdoc = ({ inputs, title }) => {
+const Newrad = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
   const [per, setPer] = useState(null);
@@ -74,7 +74,7 @@ const Newdoc = ({ inputs, title }) => {
         data.email,
         data.password
       );
-      await setDoc(doc(db, "doctors", resp.user.uid), {
+      await setDoc(doc(db, "radiologists", resp.user.uid), {
       ...data,
       timeStamp: serverTimestamp(),
     });
@@ -134,4 +134,4 @@ const Newdoc = ({ inputs, title }) => {
   );
 };
 
-export default Newdoc;
+export default Newrad;

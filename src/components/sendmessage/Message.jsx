@@ -1,10 +1,9 @@
-import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import "./home.scss";
-import Table from "../../components/table/Table";
-import Image, { ImageUpload } from "../imageUpload/Image";
+import "./message.scss";
+
 import Radsidebar from "../../components/sidebar/Radsidebar";
-const Home = () => {
+import Sendmessage from "./Sendmessage";
+const Message = () => {
   return (
     <div className="home">
       <Radsidebar />
@@ -14,11 +13,11 @@ const Home = () => {
         
         <div className="listContainer">
           
-          <ImageUpload />
+          <Sendmessage/>
         </div>
       </div>
     </div>
   );
 };
 
-export default Home;
+export default Message;

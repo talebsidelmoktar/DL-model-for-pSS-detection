@@ -1,4 +1,3 @@
-
 import './doctor.scss';
 import { db } from "../../firebase";
 import { auth } from "../../firebase";
@@ -7,7 +6,7 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
-const Doctor = () => {
+const Nurse = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -18,7 +17,7 @@ const Doctor = () => {
     e.preventDefault();
 
     // Get the user with the provided email from the 'users' collection
-    const usersRef = collection(db, "doctors");
+    const usersRef = collection(db, "nurses");
     const q = query(usersRef, where("email", "==", email));
     getDocs(q)
       .then((querySnapshot) => {
@@ -43,7 +42,7 @@ const Doctor = () => {
         // User successfully signed in
         const user = userCredential.user;
         console.log(user);
-        navigate("/doctor-home")
+        navigate("/nurse-home")
       })
       .catch((error) => {
         // Handle errors
@@ -53,7 +52,7 @@ const Doctor = () => {
 return (
     <div className="login-page">
       <form onSubmit={handleLogin} className="login-form">
-        <h1>Doctor Login</h1>
+        <h1>Nurse Login</h1>
         <div className="form-group">
           <label htmlFor="username">Email</label>
           <input type="text" id="email" name="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
@@ -69,4 +68,4 @@ return (
   );
 };
 
-export default Doctor;
+export default Nurse;

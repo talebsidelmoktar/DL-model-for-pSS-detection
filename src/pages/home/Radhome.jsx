@@ -1,24 +1,25 @@
-import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import "./home.scss";
-import Table from "../../components/table/Table";
-import Image, { ImageUpload } from "../imageUpload/Image";
+
+import List from "../list/List";
 import Radsidebar from "../../components/sidebar/Radsidebar";
-const Home = () => {
+import List2 from "../list/List2";
+import Drnavbar from "../../components/navbar/Drnavbar";
+const Radhome = () => {
   return (
     <div className="home">
       <Radsidebar />
       <div className="homeContainer">
-        <Navbar />
+        <Drnavbar />
         
         
         <div className="listContainer">
           
-          <ImageUpload />
+          <List2 />
         </div>
       </div>
     </div>
   );
 };
 
-export default Home;
+export default Radhome;

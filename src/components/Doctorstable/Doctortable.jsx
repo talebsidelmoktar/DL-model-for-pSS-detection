@@ -59,9 +59,7 @@ const Doctortable = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
-              <div className="viewButton">View</div>
-            </Link>
+            
             <div
               className="deleteButton"
               onClick={() => handleDelete(params.row.id)}
@@ -76,7 +74,7 @@ const Doctortable = () => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New Patient
+        Add New Doctor
         <Link to="/doctors/new" className="link">
           Add New
         </Link>
