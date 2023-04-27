@@ -178,6 +178,13 @@ function App() {
                    </RequireAuth>
                    } />
             </Route>
+            <Route path="check">
+              <Route index element={
+                   <RequireAuth>
+                       <Home />
+                   </RequireAuth>
+                   } />
+            </Route>
             
             
           </Route>

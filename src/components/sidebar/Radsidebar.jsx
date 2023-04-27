@@ -55,7 +55,7 @@ const Radsidebar = () => {
           </Link>
 
           <p className="title">Checks</p>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/check" style={{ textDecoration: "none" }}>
             <li>
               <DocumentScannerIcon className="icon" />
               <span>Make a check</span>
