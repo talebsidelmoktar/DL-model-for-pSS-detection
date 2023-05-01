@@ -152,10 +152,14 @@ export const ImageUpload = () => {
   const [image, setImage] = useState(false);
   const [isLoading, setIsloading] = useState(false);
   const navigate = useNavigate()
-  
+  //When you call useState with an initial value, it returns an array with two elements:
+//The first element is the current state value, which you can access and update in your component.
+//The second element is a function that allows you to update the state value.
 
   const sendFile = async () => {
     if (image) {
+      //checks if an image is present, and if it is, 
+      //creates a new instance of FormData. The selectedFile is then appended to the FormData instance.
       let formData = new FormData();
       formData.append("file", selectedFile);
       let res = await axios({
@@ -163,6 +167,8 @@ export const ImageUpload = () => {
         url: 'http://localhost:8000/predict',
         data: formData,
       });
+      //Next, an HTTP POST request is sent to http://localhost:8000/predict using the axios library, 
+      //passing in the FormData object as the data parameter. The response is stored in the res variable.
       if (res.status === 200) {
         setData(res.data);
         
@@ -263,6 +269,7 @@ export const ImageUpload = () => {
                         <TableCell component="th" scope="row" className={classes.tableCell}>
                           {data.class}
                         </TableCell>
+                        
                       </TableRow>
                     </TableBody>
                   </Table>
