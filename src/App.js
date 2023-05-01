@@ -5,7 +5,7 @@ import Doctorlist from "./pages/Doctorlist/Doctorlist";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { productInputs, userInputs } from "./formSource";
+import { checkInputs, productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
@@ -23,9 +23,18 @@ import Nursetable from "./components/Nusrestable/Nursetable";
 import Newnurse from "./pages/newdoc/Newnurse";
 import Radhome from "./pages/home/Radhome";
 import Nurhome from "./pages/home/Nurhome";
-import Message from "./components/sendmessage/Message";
+import Check from "./pages/checks/Check";
 import List2 from "./pages/list/List2";
 import Landing from "./components/landingpage/Landing";
+import Applist from "./pages/appoitmentlist/Applist";
+import AppointmentForm from "./pages/appointmentform/Appform";
+import Checklist from "./pages/checklist/Checklist";
+import Checkform from "./pages/checks/Checkform";
+import Userdetails from "./components/view/Userdetails";
+import Userdetail from "./components/view/Userdetails";
+import Radiodetail from "./components/view/Radiodetail";
+import Doctordetail from "./components/view/Doctordetail";
+import Nursedetail from "./components/view/Nursedetail";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -34,7 +43,7 @@ function App() {
  
 
   const RequireAuth = ({children}) => {
-    return currentUser ? children : <Navigate to="/login" />;
+    return currentUser ? children : <Navigate to="/" />;
   };
   
 
@@ -42,22 +51,19 @@ function App() {
     <div className={darkMode ? "app dark" : "app"}>
       <BrowserRouter>
         <Routes>
-          <Route path="/">
+          <Route path="/" element={<Landing />} />
             <Route path="login" element={<Login />} />
-             <Route index element={
-                 <RequireAuth>
-                     <Landing />
-                 </RequireAuth>} />
+            <Route path="doctor-login" element={<Doctor />} />
+            <Route path="nurse-login" element={<Nurse />} />
+            <Route path="radiologist-login" element={<Radiologist />} />
+             
             <Route path="doctors">
               <Route index element={
                    <RequireAuth>
                        <Doctorlist />
                    </RequireAuth>
                    } /> 
-                <Route path=":doctorId" element={
-                     <RequireAuth>
-                         <Singledr/>
-                     </RequireAuth>} />
+                <Route path="/doctors/:id" element ={<Doctordetail />}/>
                <Route
                  path="new"
                  element={<Newdoc inputs={userInputs} title="Add New Doctor" />}
@@ -69,39 +75,21 @@ function App() {
                        <List2 />
                    </RequireAuth>
                    } />
-              <Route path=":userId" element={
-                     <RequireAuth>
-                         <Single/>
-                     </RequireAuth>} />
+              <Route path="/users/:id" element ={<Userdetail />}/>
+                 
               <Route
                 path="new"
                 element={<New inputs={userInputs} title="Add New User" />}
               />
             </Route>
-            <Route path="products">
-              <Route index element={
-                 <RequireAuth>
-                      <List />
-                </RequireAuth>} />
-              <Route path=":productId" element={
-                    <RequireAuth>
-                         <Single />
-                    </RequireAuth>} />
-              <Route
-                path="new"
-                element={<New inputs={productInputs} title="Add New Product" />}
-              />
-            </Route>
+            
             <Route path="radiologists">
               <Route index element={
                    <RequireAuth>
                        <Radiotable />
                    </RequireAuth>
                    } />
-                  <Route path=":doctorId" element={
-                     <RequireAuth>
-                         <Singledr/>
-                     </RequireAuth>} />
+                  <Route path="/radiologists/:id" element ={<Radiodetail />}/>
                <Route
                  path="new"
                  element={<Newrad inputs={userInputs} title="Add New Radiologist" />}
@@ -113,19 +101,41 @@ function App() {
                        <Nursetable />
                    </RequireAuth>
                    } />
-                  <Route path=":doctorId" element={
-                     <RequireAuth>
-                         <Singledr/>
-                     </RequireAuth>} />
+                  <Route path="/nurses/:id" element ={<Nursedetail />}/>
                <Route
                  path="new"
                  element={<Newnurse inputs={userInputs} title="Add New Nurse" />}
                  />
+            </Route >   
+            <Route path="appointments">
+              <Route index element={
+                   <RequireAuth>
+                       <Applist />
+                   </RequireAuth>
+                   } />
+                  
+                <Route
+                 path="new"
+                 element={<AppointmentForm inputs={userInputs} title="Add New Nurse" />}
+                 />
             </Route>
+            <Route path="checks">
+              <Route index element={
+                   <RequireAuth>
+                       <Checklist/>
+                   </RequireAuth>
+                   } />
+                  
+                <Route
+                 path="new"
+                 element={<Checkform inputs={checkInputs} title="Add New Check" />}
+                 />
+            </Route>
+            
             <Route path="send-message">
               <Route index element={
                    <RequireAuth>
-                       <Message />
+                       <Check />
                    </RequireAuth>
                    } />
             </Route>
@@ -150,34 +160,9 @@ function App() {
                    </RequireAuth>
                    } />
             </Route>
-            <Route path="Landing">
-              <Route index element={
-                   <RequireAuth>
-                       <LandingPage />
-                   </RequireAuth>
-                   } />
-            </Route>
-            <Route path="doctor-login">
-              <Route index element={
-                   <RequireAuth>
-                       <Doctor />
-                   </RequireAuth>
-                   } />
-            </Route>
-            <Route path="nurse-login">
-              <Route index element={
-                   <RequireAuth>
-                       <Nurse />
-                   </RequireAuth>
-                   } />
-            </Route>
-            <Route path="radiologist-login">
-              <Route index element={
-                   <RequireAuth>
-                       <Radiologist />
-                   </RequireAuth>
-                   } />
-            </Route>
+            
+            
+            
             <Route path="check">
               <Route index element={
                    <RequireAuth>
@@ -186,8 +171,8 @@ function App() {
                    } />
             </Route>
             
+           
             
-          </Route>
         </Routes>
       </BrowserRouter>
     </div>

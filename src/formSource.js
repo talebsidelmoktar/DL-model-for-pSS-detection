@@ -42,36 +42,31 @@ export const userInputs = [
     },
   ];
   
-  export const productInputs = [
+  export const checkInputs = [
     {
-      id: 1,
-      label: "Title",
+      id: "name",
+      label: "Name",
       type: "text",
-      placeholder: "Apple Macbook Pro",
+      placeholder: "name",
     },
     {
-      id: 2,
-      label: "Description",
-      type: "text",
-      placeholder: "Description",
+      id: "image",
+      label: "image",
+      type: "file",
+    },
+    
+    {
+      id: "email",
+      label: "Email",
+      type: "mail",
+      placeholder: "name@gmail.com",
     },
     {
-      id: 3,
-      label: "Category",
+      id: "phone",
+      label: "Phone",
       type: "text",
-      placeholder: "Computers",
+      placeholder: "phone",
     },
-    {
-      id: 4,
-      label: "Price",
-      type: "text",
-      placeholder: "100",
-    },
-    {
-      id: 5,
-      label: "Stock",
-      type: "text",
-      placeholder: "in stock",
-    },
+    
   ];
   

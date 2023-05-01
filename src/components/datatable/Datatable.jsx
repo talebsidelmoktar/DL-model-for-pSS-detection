@@ -1,7 +1,7 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { userColumns, userRows } from "../../datatablesource";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { collection, getDocs , deleteDoc, doc, onSnapshot} from "firebase/firestore";
 import { db } from "../../firebase";
@@ -50,6 +50,7 @@ const Datatable = () => {
     }
     
   };
+  
 
   const actionColumn = [
     {
@@ -65,6 +66,15 @@ const Datatable = () => {
               onClick={() => handleDelete(params.row.id)}
             >
               Delete
+            </div>
+            <div
+              className="viewButton"
+              
+            > 
+            <Link to={`/users/${params.row.id}`} className="link">
+            View
+          </Link>
+              
             </div>
           </div>
         );

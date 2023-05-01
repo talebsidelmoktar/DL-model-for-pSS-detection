@@ -7,9 +7,7 @@ import Radsidebar from "../../components/sidebar/Radsidebar";
 const Home = () => {
   return (
     <div className="home">
-      <Radsidebar />
       <div className="homeContainer">
-        <Navbar />
         
         
         <div className="listContainer">

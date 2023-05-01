@@ -10,14 +10,29 @@ import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSyst
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ListIcon from '@mui/icons-material/List';
+import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import PersonIcon from '@mui/icons-material/Person';
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import Person4Icon from '@mui/icons-material/Person4';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
+import {useAuth} from "../../context/AuthContext";
+import { auth } from "../../firebase";
 
 const Drsidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
+  const navigate  = useNavigate()
+  const Logout = (e) =>{
+    
+
+    e.preventDefault();
+    auth.signOut().then(() => {
+      navigate('/');
+    });
+    // ...
+  
+  };
   return (
     <div className="sidebar">
       <div className="top">
@@ -44,7 +59,7 @@ const Drsidebar = () => {
           </Link>
          
           
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/appointments" style={{ textDecoration: "none" }}>
             <li>
               <ListIcon className="icon" />
               <span>list of Apointments</span>
@@ -57,13 +72,25 @@ const Drsidebar = () => {
             </li>
           </Link>
           
-          
+          <p className="title">Checks</p>
+          <Link to="/check" style={{ textDecoration: "none" }}>
+            <li>
+              <DocumentScannerIcon className="icon" />
+              <span>Make a check</span>
+            </li>
+          </Link>
+          <Link to="/checks" style={{ textDecoration: "none" }}>
+            <li>
+              <FormatListNumberedIcon className="icon" />
+              <span>list of checks</span>
+            </li>
+          </Link>
           
           <p className="title">USER</p>
           
           <li>
             <ExitToAppIcon className="icon" />
-            <span>Logout</span>
+            <span onClick={Logout}>Logout</span>
           </li>
         </ul>
       </div>

@@ -12,12 +12,24 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import ListIcon from '@mui/icons-material/List';
 import PersonIcon from '@mui/icons-material/Person';
 import Person4Icon from '@mui/icons-material/Person4';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
+import { auth } from "../../firebase";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
+  const navigate  = useNavigate()
+  const Logout = (e) =>{
+    
+
+    e.preventDefault();
+    auth.signOut().then(() => {
+      navigate('/');
+    });
+    // ...
+  
+  };
   return (
     <div className="sidebar">
       <div className="top">
@@ -50,7 +62,7 @@ const Sidebar = () => {
               <span>Doctors</span>
             </li>
           </Link>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/appointments" style={{ textDecoration: "none" }}>
             <li>
               <ListIcon className="icon" />
               <span>list of Apointments</span>
@@ -69,7 +81,7 @@ const Sidebar = () => {
           
           <li>
             <ExitToAppIcon className="icon" />
-            <span>Logout</span>
+            <span onClick={Logout}>Logout</span>
           </li>
         </ul>
       </div>

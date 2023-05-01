@@ -66,6 +66,15 @@ const Radiotable = () => {
             >
               Delete
             </div>
+            <div
+              className="viewButton"
+              
+            > 
+            <Link to={`/radiologits/${params.row.id}`} className="link">
+            View
+          </Link>
+              
+            </div>
           </div>
         );
       },

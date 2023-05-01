@@ -1,11 +1,14 @@
-import "./doctortable.scss";
-import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../../datatablesource";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { collection, getDocs , deleteDoc, doc, onSnapshot} from "firebase/firestore";
+import React, { useEffect, useState } from 'react';
 import { db } from "../../firebase";
-const Doctortable = () => {
+import { Link } from 'react-router-dom';
+import { collection, getDocs , deleteDoc, doc, onSnapshot} from "firebase/firestore";
+import { appointmentColumns } from '../../datatablesourse2';
+import { DataGrid } from "@mui/x-data-grid";
+
+
+const Applist = () => {
+  const [appointments, setAppointments] = useState([]);
+
   const [data, setData] = useState([]);
 
 
@@ -25,7 +28,7 @@ const Doctortable = () => {
     // fetchData();
     
     //listen realtime
-    const unsub = onSnapshot(collection(db, "doctors"), (snapshot) => {
+    const unsub = onSnapshot(collection(db, "appointments"), (snapshot) => {
       let list = [];
       snapshot.docs.forEach((doc) =>{
         list.push({ id: doc.id, ...doc.data()}) ;
@@ -43,7 +46,7 @@ const Doctortable = () => {
 
   const handleDelete = async (id) => {
     try{
-      await deleteDoc(doc(db, "doctors", id));
+      await deleteDoc(doc(db, "appointments", id));
       setData(data.filter((item) => item.id !== id));
     }catch(err){
       console.log(err);
@@ -66,15 +69,6 @@ const Doctortable = () => {
             >
               Delete
             </div>
-            <div
-              className="viewButton"
-              
-              > 
-             <Link to={`/doctors/${params.row.id}`} className="link">
-                View
-             </Link>
-              
-            </div>
           </div>
         );
       },
@@ -83,15 +77,15 @@ const Doctortable = () => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New Doctor
-        <Link to="/doctors/new" className="link">
+        Add New Appointment
+        <Link to="new" className="link">
           Add New
         </Link>
       </div>
       <DataGrid
         className="datagrid"
         rows={data}
-        columns={userColumns.concat(actionColumn)}
+        columns={appointmentColumns.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
@@ -100,4 +94,4 @@ const Doctortable = () => {
   );
 };
 
-export default Doctortable;
+export default Applist;

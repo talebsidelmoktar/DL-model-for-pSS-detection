@@ -66,6 +66,14 @@ const Nursetable = () => {
             >
               Delete
             </div>
+            <div
+              className="viewButton"
+            > 
+            <Link to={`/nurses/${params.row.id}`} className="link">
+               View
+          </Link>
+              
+            </div>
           </div>
         );
       },

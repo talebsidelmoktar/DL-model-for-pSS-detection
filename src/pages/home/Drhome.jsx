@@ -15,7 +15,7 @@ const Drhome = () => {
         
         
         <div className="listContainer">
-          <div className="listTitle">Latest Apointments</div>
+         
           <List2 />
         </div>
       </div>

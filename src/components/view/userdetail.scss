@@ -1,0 +1,60 @@
+.userDetail {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .userImage {
+    margin-right: 30px;
+  }
+  
+  .userImage img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .userInfo h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .userInfo p {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #6c757d;
+  }
+  
+  .userInfo strong {
+    font-weight: bold;
+    margin-right: 5px;
+    color: #343a40;
+  }
+  .backButton {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4285F4;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .backButton:hover {
+    background-color: #3367D6;
+  }
+  
+  .backButton i {
+    margin-right: 5px;
+  }
+  

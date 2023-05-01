@@ -6,9 +6,7 @@ import Datatable from "../../components/datatable/Datatable"
 const List2 = () => {
   return (
     <div className="list">
-      
       <div className="listContainer">
-        
         <Datatable/>
       </div>
     </div>
