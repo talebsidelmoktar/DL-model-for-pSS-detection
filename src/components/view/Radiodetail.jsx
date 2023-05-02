@@ -48,7 +48,7 @@ const Radiodetail = () => {
         <strong>Address: </strong> {user.address}
       </p>
       <div className="backButton" >
-        <Link to={'/users'} >
+        <Link to={'/radiologists'} >
           <i className="fa fa-arrow-left"></i> Back to Users List
           </Link> 
         </div>

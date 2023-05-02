@@ -64,8 +64,9 @@ return (
           <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
         <button type="submit" className="login-button">Login</button>
+        {error && <p className="error">{error}</p>}
+
       </form>
-      {error && <p>{error}</p>}
     </div>
   );
 };

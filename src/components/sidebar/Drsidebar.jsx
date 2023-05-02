@@ -14,25 +14,23 @@ import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import PersonIcon from '@mui/icons-material/Person';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import Person4Icon from '@mui/icons-material/Person4';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
-import { useContext } from "react";
-import {useAuth} from "../../context/AuthContext";
+import { useContext, useState } from "react";
+import {AuthContext, useAuth} from "../../context/AuthContext";
 import { auth } from "../../firebase";
 
 const Drsidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
   const navigate  = useNavigate()
-  const Logout = (e) =>{
-    
-
-    e.preventDefault();
-    auth.signOut().then(() => {
-      navigate('/');
+  const Logout = () => {
+       auth.signOut().then(() => {
+     
+       navigate('/');
+    }).catch((error) => {
+      console.log('Error logging out:', error);
     });
-    // ...
-  
-  };
+};
   return (
     <div className="sidebar">
       <div className="top">

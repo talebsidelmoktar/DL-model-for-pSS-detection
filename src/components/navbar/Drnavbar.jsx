@@ -37,7 +37,7 @@ const Drnavbar = () => {
          
           <div className="item">
             <img
-              src={currentUser.img}
+            //src={currentUser.img}
               alt=""
               className="avatar"
             />

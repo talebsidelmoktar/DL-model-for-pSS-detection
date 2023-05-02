@@ -7,7 +7,7 @@ import New from "./pages/new/New";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { checkInputs, productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
 import Singledr from "./pages/singledr/Singledr";
@@ -35,6 +35,11 @@ import Userdetail from "./components/view/Userdetails";
 import Radiodetail from "./components/view/Radiodetail";
 import Doctordetail from "./components/view/Doctordetail";
 import Nursedetail from "./components/view/Nursedetail";
+import Adminhome from "./pages/home/Adminhome";
+import { auth, db } from "./firebase";
+import { collection, doc, getDocs, query, where } from "firebase/firestore";
+import RequireDoctorAuth from "./context/RequireDoctorAuth";
+import RequireAdminAuth from "./context/RequireAdminAuth";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -45,6 +50,7 @@ function App() {
   const RequireAuth = ({children}) => {
     return currentUser ? children : <Navigate to="/" />;
   };
+ 
   
 
   return (
@@ -59,9 +65,9 @@ function App() {
              
             <Route path="doctors">
               <Route index element={
-                   <RequireAuth>
+                   
                        <Doctorlist />
-                   </RequireAuth>
+                   
                    } /> 
                 <Route path="/doctors/:id" element ={<Doctordetail />}/>
                <Route
@@ -85,9 +91,9 @@ function App() {
             
             <Route path="radiologists">
               <Route index element={
-                   <RequireAuth>
+                   
                        <Radiotable />
-                   </RequireAuth>
+                  
                    } />
                   <Route path="/radiologists/:id" element ={<Radiodetail />}/>
                <Route
@@ -97,9 +103,9 @@ function App() {
             </Route>
             <Route path="nurses">
               <Route index element={
-                   <RequireAuth>
+                  
                        <Nursetable />
-                   </RequireAuth>
+                   
                    } />
                   <Route path="/nurses/:id" element ={<Nursedetail />}/>
                <Route
@@ -139,13 +145,20 @@ function App() {
                    </RequireAuth>
                    } />
             </Route>
-            <Route path="doctor-home">
+            <Route path="admin-home">
               <Route index element={
-                   <RequireAuth>
-                       <Drhome />
-                   </RequireAuth>
+                    <RequireAdminAuth>
+                      <Adminhome />
+                    </RequireAdminAuth>
+                          
+                   
+                      
                    } />
             </Route>
+            <Route path="/doctor-home" >
+               <Route index element={<RequireDoctorAuth> <Drhome/></RequireDoctorAuth>} />
+            </Route>
+
             <Route path="radiologist-home">
               <Route index element={
                    <RequireAuth>

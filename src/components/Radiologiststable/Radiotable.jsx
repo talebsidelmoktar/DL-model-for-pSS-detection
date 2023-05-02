@@ -70,7 +70,7 @@ const Radiotable = () => {
               className="viewButton"
               
             > 
-            <Link to={`/radiologits/${params.row.id}`} className="link">
+            <Link to={`/radiologists/${params.row.id}`} className="link">
             View
           </Link>
               

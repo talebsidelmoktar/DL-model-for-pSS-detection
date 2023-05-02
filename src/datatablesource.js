@@ -11,7 +11,7 @@ export const userColumns = [
           {params.row.username}
         </div>
       );
-    },
+   },
   },
   {
     field: "email",

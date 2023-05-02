@@ -48,7 +48,7 @@ const Nursedetail = () => {
         <strong>Address: </strong> {user.address}
       </p>
       <div className="backButton" >
-        <Link to={'/users'} >
+        <Link to={'/nurses'} >
           <i className="fa fa-arrow-left"></i> Back to Users List
           </Link> 
         </div>
