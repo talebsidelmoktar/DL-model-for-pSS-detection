@@ -3,6 +3,7 @@ import { collection, deleteDoc, doc, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { DataGrid } from '@mui/x-data-grid';
 import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 const Checklist = () => {
   const [data, setData] = useState([]);
@@ -64,6 +65,9 @@ const Checklist = () => {
   ];
   return (
     <div className="datatable">
+      <Link to={-1} >
+      <Button className="button" >Back</Button>
+      </Link>
       <div className="datatableTitle">
         Add New Check
         <Link to="/checks/new" className="link">
