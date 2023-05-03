@@ -30,6 +30,11 @@ export const checkColumns = [
         headerName: "Result",
         width: 160,
       },
+      {
+        field: "prescription",
+        headerName: "Prescription",
+        width: 160,
+      },
     {
       field: "date",
       headerName: "Date",

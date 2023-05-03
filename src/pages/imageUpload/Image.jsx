@@ -287,7 +287,7 @@ export const ImageUpload = () => {
                       <TableCell
                           component="th"
                           scope="row"
-                          className={`${classes.tableCell} ${data.class == 'Sj' ? 'red' : 'green'}`}
+                          className={`${classes.tableCell} ${data.class === 'Sj' ? 'red' : 'green'}`}
                                     >
                                           {data.class}
                       </TableCell>

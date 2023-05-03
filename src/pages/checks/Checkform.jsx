@@ -12,6 +12,7 @@ const Checkform = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [result, setResult] = useState('');
+  const [prescription, setPrescription] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [imageFile, setImageFile] = useState(null);
@@ -42,6 +43,7 @@ const Checkform = () => {
             name,
             email,
             result,
+            prescription,
             date,
             time,
             img: url
@@ -95,7 +97,16 @@ const Checkform = () => {
           required
         />
       </div>
-
+      <div className="form-group">
+        <label htmlFor="prescription">Prescription:</label>
+        <input
+          type="prescription"
+          id="prescription"
+          value={prescription}
+          onChange={(e) => setPrescription(e.target.value)}
+          required
+        />
+      </div>
       <div className="form-group">
         <label htmlFor="date">Date:</label>
         <input

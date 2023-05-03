@@ -82,9 +82,7 @@ const Nursetable = () => {
   ];
   return (
     <div className="datatable">
-      <Link to={-1} >
-      <Button className="button" >Back</Button>
-      </Link>
+      
       <div className="datatableTitle">
         Add New Nurse
         <Link to="/nurses/new" className="link">

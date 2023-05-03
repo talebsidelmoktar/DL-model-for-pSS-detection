@@ -44,12 +44,7 @@ const Radsidebar = () => {
         <ul>
           
           <p className="title">LISTS</p>
-          <Link to="/users" style={{ textDecoration: "none" }}>
-            <li>
-              <PersonOutlineIcon className="icon" />
-              <span>Patiens</span>
-            </li>
-          </Link>
+          
           <Link to="/nurses" style={{ textDecoration: "none" }}>
             <li>
               <MedicationLiquidIcon className="icon" />

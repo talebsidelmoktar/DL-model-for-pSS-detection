@@ -32,6 +32,8 @@ const Checklist = () => {
     { title: 'Name', field: 'name', width: 100 },
     { title: 'Email', field: 'email', width: 190 },
     { title: 'Result', field: 'result', width: 100 },
+    { title: 'Prescription', field: 'prescription', width: 180 },
+
     { title: 'Date', field: 'date', width: 150 },
     { title: 'Time', field: 'time' , width: 100},
    
