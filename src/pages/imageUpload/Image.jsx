@@ -34,6 +34,12 @@ const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   },
+  red: {
+    color: 'red',
+  },
+  green: {
+    color: 'green',
+  },
   clearButton: {
     width: "-webkit-fill-available",
     borderRadius: "15px",
@@ -108,6 +114,12 @@ const useStyles = makeStyles((theme) => ({
     color: '#000000a6 !important',
     fontWeight: 'bolder',
     padding: '1px 24px 1px 16px',
+    '&.red': {
+      color: 'red',
+    },
+    '&.green': {
+      color: 'green',
+    },
   },
   tableCell1: {
     fontSize: '14px',
@@ -116,6 +128,12 @@ const useStyles = makeStyles((theme) => ({
     color: '#000000a6 !important',
     fontWeight: 'bolder',
     padding: '1px 24px 1px 16px',
+    '&.red': {
+      color: 'red',
+    },
+    '&.green': {
+      color: 'green',
+    },
   },
   tableBody: {
     backgroundColor: 'transparent !important',
@@ -266,9 +284,16 @@ export const ImageUpload = () => {
                     </TableHead>
                     <TableBody className={classes.tableBody}>
                       <TableRow className={classes.tableRow}>
-                        <TableCell component="th" scope="row" className={classes.tableCell}>
-                          {data.class}
-                        </TableCell>
+                      <TableCell
+                          component="th"
+                          scope="row"
+                          className={`${classes.tableCell} ${data.class == 'Sj' ? 'red' : 'green'}`}
+                                    >
+                                          {data.class}
+                      </TableCell>
+  
+
+
                         
                       </TableRow>
                     </TableBody>

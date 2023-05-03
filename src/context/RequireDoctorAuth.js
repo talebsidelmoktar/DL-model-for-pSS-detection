@@ -13,7 +13,8 @@ function RequireDoctorAuth({ children }) {
       if (currentUser) {
         const doctorsRef = collection(db, 'doctors');
         const email = currentUser.email;
-        const q = query(doctorsRef, where('email', '==', email));
+        const password = currentUser.password;
+        const q = query(doctorsRef, where('email', '==', email),where('password', '==' ,password));
   
         getDocs(q)
           .then((querySnapshot) => {

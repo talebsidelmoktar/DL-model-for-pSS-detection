@@ -18,7 +18,7 @@ const Login = () => {
 
     // Get the user with the provided email from the 'users' collection
     const usersRef = collection(db, "admins");
-    const q = query(usersRef, where("email", "==", email));
+    const q = query(usersRef, where("email", "==", email),where("password", "==", password));
     getDocs(q)
       .then((querySnapshot) => {
         if (querySnapshot.size > 0) {

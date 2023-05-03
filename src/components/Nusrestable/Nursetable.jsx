@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { collection, getDocs , deleteDoc, doc, onSnapshot} from "firebase/firestore";
 import { db } from "../../firebase";
+import { Button } from "@mui/material";
 const Nursetable = () => {
   const [data, setData] = useState([]);
 
@@ -81,6 +82,9 @@ const Nursetable = () => {
   ];
   return (
     <div className="datatable">
+      <Link to={-1} >
+      <Button className="button" >Back</Button>
+      </Link>
       <div className="datatableTitle">
         Add New Nurse
         <Link to="/nurses/new" className="link">

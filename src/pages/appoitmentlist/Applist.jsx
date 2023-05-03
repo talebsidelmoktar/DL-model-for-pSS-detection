@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { collection, getDocs , deleteDoc, doc, onSnapshot} from "firebase/firestore";
 import { appointmentColumns } from '../../datatablesourse2';
 import { DataGrid } from "@mui/x-data-grid";
+import { Button } from '@mui/material';
 
 
 const Applist = () => {
@@ -76,6 +77,9 @@ const Applist = () => {
   ];
   return (
     <div className="datatable">
+      <Link to={-1} >
+             <Button className="button" >Back</Button>
+      </Link>
       <div className="datatableTitle">
         Add New Appointment
         <Link to="new" className="link">

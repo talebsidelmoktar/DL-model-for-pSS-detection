@@ -5,6 +5,7 @@ import { Link, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { collection, getDocs , deleteDoc, doc, onSnapshot} from "firebase/firestore";
 import { db } from "../../firebase";
+import { Button } from "@mui/material";
 const Datatable = () => {
   const [data, setData] = useState([]);
 
@@ -83,6 +84,8 @@ const Datatable = () => {
   ];
   return (
     <div className="datatable">
+      
+      
       <div className="datatableTitle">
         Add New Patient
         <Link to="/users/new" className="link">

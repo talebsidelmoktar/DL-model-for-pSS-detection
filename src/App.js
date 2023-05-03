@@ -44,11 +44,11 @@ import RequireAdminAuth from "./context/RequireAdminAuth";
 function App() {
   const { darkMode } = useContext(DarkModeContext);
   
-  const {currentUser} = useContext(AuthContext)
+  const {currentUser} = useContext(AuthContext);
  
 
   const RequireAuth = ({children}) => {
-    return currentUser ? children : <Navigate to="/" />;
+    return currentUser ?  <Navigate to="/" />: children;
   };
  
   
@@ -65,8 +65,10 @@ function App() {
              
             <Route path="doctors">
               <Route index element={
-                   
+                     <RequireDoctorAuth>
                        <Doctorlist />
+                     </RequireDoctorAuth>
+                      
                    
                    } /> 
                 <Route path="/doctors/:id" element ={<Doctordetail />}/>
@@ -91,8 +93,10 @@ function App() {
             
             <Route path="radiologists">
               <Route index element={
-                   
-                       <Radiotable />
+                   <RequireAuth>
+                      <Radiotable />
+                   </RequireAuth>
+                     
                   
                    } />
                   <Route path="/radiologists/:id" element ={<Radiodetail />}/>
@@ -103,8 +107,10 @@ function App() {
             </Route>
             <Route path="nurses">
               <Route index element={
-                  
+                     <RequireAuth>
                        <Nursetable />
+                     </RequireAuth>
+                       
                    
                    } />
                   <Route path="/nurses/:id" element ={<Nursedetail />}/>
@@ -147,9 +153,9 @@ function App() {
             </Route>
             <Route path="admin-home">
               <Route index element={
-                    <RequireAdminAuth>
+                    <RequireAuth>
                       <Adminhome />
-                    </RequireAdminAuth>
+                    </RequireAuth>
                           
                    
                       
