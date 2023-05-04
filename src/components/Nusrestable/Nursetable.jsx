@@ -84,7 +84,7 @@ const Nursetable = () => {
     <div className="datatable">
       
       <div className="datatableTitle">
-        Add New Nurse
+        List Of Nurses
         <Link to="/nurses/new" className="link">
           Add New
         </Link>

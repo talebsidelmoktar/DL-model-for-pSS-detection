@@ -63,12 +63,7 @@ const Drsidebar = () => {
               <span>list of Apointments</span>
             </li>
           </Link>
-          <Link to="/radiologists" style={{ textDecoration: "none" }}>
-            <li>
-              <Person4Icon className="icon" />
-              <span>Radiologists</span>
-            </li>
-          </Link>
+          
           
           <p className="title">Checks</p>
           <Link to="/check" style={{ textDecoration: "none" }}>

@@ -87,7 +87,7 @@ const Radiotable = () => {
       <Button className="button" >Back</Button>
       </Link>
       <div className="datatableTitle">
-        Add New Radiologist
+        List Of Radiologists
         <Link to="/radiologists/new" className="link">
           Add New
         </Link>

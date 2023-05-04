@@ -87,7 +87,7 @@ const Doctortable = () => {
       <Button className="button" >Back</Button>
       </Link>
       <div className="datatableTitle">
-        Add New Doctor
+        List Of Doctors
         <Link to="/doctors/new" className="link">
           Add New
         </Link>

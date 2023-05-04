@@ -67,14 +67,10 @@ const Checklist = () => {
   ];
   return (
     <div className="datatable">
-      <Link to={-1} >
-      <Button className="button" >Back</Button>
-      </Link>
+      
       <div className="datatableTitle">
-        Add New Check
-        <Link to="/checks/new" className="link">
-          Add New
-        </Link>
+        List of Checks
+        
       </div>
       <DataGrid
         className="datagrid"

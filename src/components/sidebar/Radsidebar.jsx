@@ -43,22 +43,7 @@ const Radsidebar = () => {
       <div className="center">
         <ul>
           
-          <p className="title">LISTS</p>
           
-          <Link to="/nurses" style={{ textDecoration: "none" }}>
-            <li>
-              <MedicationLiquidIcon className="icon" />
-              <span>Nurses</span>
-            </li>
-          </Link>
-         
-          
-          <Link to="/appointments" style={{ textDecoration: "none" }}>
-            <li>
-              <ListIcon className="icon" />
-              <span>list of Apointments</span>
-            </li>
-          </Link>
 
           <p className="title">Checks</p>
           <Link to="/check" style={{ textDecoration: "none" }}>

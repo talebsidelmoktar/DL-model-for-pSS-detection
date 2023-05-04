@@ -6,6 +6,7 @@ import Radsidebar from "../../components/sidebar/Radsidebar";
 import List2 from "../list/List2";
 import Drnavbar from "../../components/navbar/Drnavbar";
 import List1 from "../list/List1";
+import Checklist from "../checklist/Checklist";
 const Radhome = () => {
   return (
     <div className="home">
@@ -16,7 +17,7 @@ const Radhome = () => {
         
         <div className="listContainer">
           
-          <List1 />
+          <Checklist />
         </div>
       </div>
     </div>
