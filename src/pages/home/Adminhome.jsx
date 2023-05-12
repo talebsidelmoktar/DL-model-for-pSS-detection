@@ -6,6 +6,7 @@ import Image, { ImageUpload } from "../imageUpload/Image";
 import List from "../list/List";
 import List2 from "../list/List2";
 import Sidebar from "../../components/sidebar/Sidebar";
+import Nursetable from "../../components/Nusrestable/Nursetable";
 const Adminhome = () => {
   return (
     <div className="home">
@@ -16,7 +17,7 @@ const Adminhome = () => {
         
         <div className="listContainer">
          
-          <List2 />
+          <Nursetable />
         </div>
       </div>
     </div>
