@@ -56,12 +56,7 @@ const Sidebar = () => {
               <span>Doctors</span>
             </li>
           </Link>
-          <Link to="/appointments" style={{ textDecoration: "none" }}>
-            <li>
-              <ListIcon className="icon" />
-              <span>list of Apointments</span>
-            </li>
-          </Link>
+          
           <Link to="/radiologists" style={{ textDecoration: "none" }}>
             <li>
               <Person4Icon className="icon" />
