@@ -1,5 +1,5 @@
 export const appointmentColumns = [
-    { field: "id", headerName: "ID", width: 100 },
+    { field: "id", headerName: "patientID", width: 100 },
     {
       field: "name",
       headerName: "Name",

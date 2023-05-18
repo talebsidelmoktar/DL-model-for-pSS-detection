@@ -8,6 +8,7 @@ const AppointmentForm = () => {
   const navigate = useNavigate()
 
   // State variables for the form inputs
+  const [id, setId] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [date, setDate] = useState('');
@@ -20,6 +21,7 @@ const AppointmentForm = () => {
     try {
       // Add the appointment to the "appointments" collection in Firestore
       const appointmentRef = await addDoc(collection(db, 'appointments'), {
+        id,
         name,
         email,
         date,
@@ -37,6 +39,16 @@ const AppointmentForm = () => {
   return (
     <form onSubmit={handleSubmit} className="appointment-form">
       <h2>Add an Appointment</h2>
+      <div className="form-group">
+        <label htmlFor="id">patientID:</label>
+        <input
+          type="text"
+          id="id"
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+          required
+        />
+      </div>
 
       <div className="form-group">
         <label htmlFor="name">Name:</label>

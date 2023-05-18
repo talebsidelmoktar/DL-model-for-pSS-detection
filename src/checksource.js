@@ -31,8 +31,8 @@ export const checkColumns = [
         width: 160,
       },
       {
-        field: "prescription",
-        headerName: "Prescription",
+        field: "checkedBy",
+        headerName: "CheckedBy",
         width: 160,
       },
     {

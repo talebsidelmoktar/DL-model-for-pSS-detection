@@ -81,7 +81,7 @@ const Applist = () => {
              <Button className="button" >Back</Button>
       </Link>
       <div className="datatableTitle">
-        Add New Appointment
+        List Of  Appointments
         <Link to="new" className="link">
           Add New
         </Link>

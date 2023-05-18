@@ -12,7 +12,7 @@ const Checkform = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [result, setResult] = useState('');
-  const [prescription, setPrescription] = useState('');
+  const [checkedBy, setCheckedBy] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [imageFile, setImageFile] = useState(null);
@@ -25,7 +25,7 @@ const Checkform = () => {
     
     try {
       // Upload the image to Firebase Storage
-      const imageRef = ref(storage, `${imageFile.name}`);
+      const imageRef = ref(storage, `checks/${imageFile.name}`);
       const uploadTask = uploadBytesResumable(imageRef, image);
       uploadTask.on('state_changed', 
         (snapshot) => {
@@ -43,7 +43,7 @@ const Checkform = () => {
             name,
             email,
             result,
-            prescription,
+            checkedBy,
             date,
             time,
             img: url
@@ -58,6 +58,7 @@ const Checkform = () => {
       console.error('Error adding check: ', error);
     }
   };
+  
 
   return (
     <form onSubmit={handleSubmit} className="appointment-form">
@@ -89,23 +90,31 @@ const Checkform = () => {
       </div>
       <div className="form-group">
         <label htmlFor="result">Result:</label>
-        <input
+        <select
           type="result"
           id="result"
           value={result}
           onChange={(e) => setResult(e.target.value)}
           required
-        />
+        >
+        <option value="">Select an option</option>
+          <option value="SJ">SJ</option>
+          <option value="NO SJ">NO SJ</option>
+        </select>
       </div>
       <div className="form-group">
-        <label htmlFor="prescription">Prescription:</label>
-        <input
-          type="prescription"
-          id="prescription"
-          value={prescription}
-          onChange={(e) => setPrescription(e.target.value)}
+        <label htmlFor="prescription">CheckedBy:</label>
+        <select
+          id="checkedBy"
+          value={checkedBy}
+          onChange={(e) => setCheckedBy(e.target.value)}
           required
-        />
+        >
+          <option value="">Select an option</option>
+          <option value="doctor">Doctor</option>
+          <option value="radiologist">Radiologist</option>
+        </select>
+        
       </div>
       <div className="form-group">
         <label htmlFor="date">Date:</label>

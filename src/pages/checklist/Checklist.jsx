@@ -31,8 +31,17 @@ const Checklist = () => {
     }, width: 230 },
     { title: 'Name', field: 'name', width: 100 },
     { title: 'Email', field: 'email', width: 190 },
-    { title: 'Result', field: 'result', width: 100 },
-    { title: 'Prescription', field: 'prescription', width: 180 },
+    { 
+      title: 'Result', 
+      field: 'result', 
+      width: 100, 
+      renderCell: (params) => (
+        <span style={{ color: params.value === 'SJ' ? '#FE2020' : 'green' }}>{params.value}</span>
+      )
+    },
+    { title: 'CheckedBy', field: 'checkedBy', width: 180 , renderCell: (params) => (
+      <span style={{ color: params.value === 'doctor' ? '#32CD32' : '#f69284' }}>{params.value}</span>
+    )},
 
     { title: 'Date', field: 'date', width: 150 },
     { title: 'Time', field: 'time' , width: 100},

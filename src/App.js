@@ -162,7 +162,7 @@ function App() {
                    } />
             </Route>
             <Route path="/doctor-home" >
-               <Route index element={<RequireDoctorAuth> <Drhome/></RequireDoctorAuth>} />
+               <Route index element={<RequireAuth> <Drhome/></RequireAuth>} />
             </Route>
 
             <Route path="radiologist-home">
